@@ -40,7 +40,7 @@ dev
 Staging Deployment
     │
     ▼
-Pull Request
+Release Pull Request
     │
     ▼
 main
@@ -54,15 +54,15 @@ Production Deployment
 - Never commit directly to `main`.
 - Never commit directly to `dev`.
 - Create one `feature/*` branch per GitHub Issue.
-- Merge completed work into `dev` via Pull Request.
-- Keep `dev` deployable at all times.
-- Merge `dev` into `main` via Pull Request when a release is ready.
-- Keep `main` stable.
 - Use one branch per issue and one feature per branch when branch work is requested.
+- Merge completed work into `dev` via Pull Request.
+- Use `dev` as the primary integration branch for ongoing development.
+- Keep `dev` in a deployable state for continuous integration and staging validation.
+- Merge `dev` into `main` via a Release Pull Request when a stable release is ready.
+- Use `main` as the production branch containing only stable releases.
 - Do not push or merge; the Human owns those steps.
 - Preserve existing user changes and do not modify unrelated files.
 - Use the repository's Git metadata convention when generating branch names.
-
 
 ## Commit policy
 
