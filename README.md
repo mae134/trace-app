@@ -1,78 +1,78 @@
 # Codex Playground
 
-Codex Playground is a learning project for building and validating an AI-assisted development workflow using ChatGPT and Codex.
+Codex Playgroundは、ChatGPTとCodexを活用したAI支援開発ワークフローを構築し、検証するための学習プロジェクトです。
 
-The goal of this project is to establish a practical development process that can eventually be applied to Trace App by practicing Issue-driven development, Pull Request workflows, and clear role separation between humans and AI.
-
----
-
-# Project Goals
-
-- Establish an AI-assisted development workflow
-- Become proficient with AI coding agents
-- Learn practical Git workflows
-- Develop a memo application
-- Apply the established workflow to Trace App
+このプロジェクトの目標は、Issue駆動開発、Pull Requestワークフロー、人間とAIの明確な役割分担を実践し、最終的にTrace Appへ適用できる実用的な開発プロセスを確立することです。
 
 ---
 
-# Documents
+# プロジェクトの目標
 
-| Document | Description |
+- AI支援開発ワークフローを確立する
+- AI coding agentを使いこなせるようになる
+- 実践的なGitワークフローを習得する
+- メモアプリケーションを開発する
+- 確立したワークフローをTrace Appへ適用する
+
+---
+
+# ドキュメント
+
+| ドキュメント | 説明 |
 |----------|-------------|
-| `docs/playbook/` | Development workflow and operational guidelines |
-| `docs/checklists/` | Checklists for development phases and resuming work |
+| `docs/playbook/` | 開発ワークフローと運用ガイドライン |
+| `docs/checklists/` | 開発工程および作業再開時のチェックリスト |
 | `docs/adr/` | Architecture Decision Records |
-| `docs/design/` | Approved Design documents |
-| `docs/prompts/` | Prompt templates for AI assistants |
-| `docs/history/` | Workflow improvement history |
+| `docs/design/` | Approved Design文書 |
+| `docs/prompts/` | AIアシスタント向けプロンプトテンプレート |
+| `docs/history/` | ワークフローの改善履歴 |
 
 ---
 
-# AI Workflow Overview
+# AIワークフロー概要
 
-- **Human** defines project direction, approves GitHub Issues, performs final reviews, pushes changes, and merges Pull Requests.
-- **ChatGPT** assists with architecture discussions, reviews, workflow improvements, and prompt generation.
-- **AI coding agents** implement approved GitHub Issues, perform verification, and report implementation results based on the approved design.
-- After implementation, AI Context and related repository documentation are updated when necessary.
+- **Human**はプロジェクトの方向性を定め、GitHub Issueを承認し、最終レビュー、変更のPush、Pull RequestのMergeを行います。
+- **ChatGPT**はアーキテクチャの議論、レビュー、ワークフロー改善、プロンプト生成を支援します。
+- **AI coding agent**は、承認済みの設計に基づいて承認済みGitHub Issueを実装し、検証を行い、実装結果を報告します。
+- 実装後、必要に応じてAI Contextと関連するリポジトリドキュメントを更新します。
 
 ---
 
-# Repository Structure
+# リポジトリ構成
 
-| Path | Purpose |
+| パス | 用途 |
 |------|---------|
-| `app/` | Memo application implementation |
-| `.ai/` | Shared AI project context |
-| `.github/` | GitHub Issue templates and workflows |
-| `docs/` | Playbook, checklists, approved designs, prompts, history, and ADRs |
+| `app/` | メモアプリケーションの実装 |
+| `.ai/` | AI向け共有プロジェクトコンテキスト |
+| `.github/` | GitHub Issueテンプレートとワークフロー |
+| `docs/` | Playbook、チェックリスト、Approved Design、プロンプト、履歴、ADR |
 
 ---
 
-# Development Setup
+# 開発環境のセットアップ
 
-## Requirements
+## 必要要件
 
-- Node.js 20.9 or later
+- Node.js 20.9以降
 - npm
 
-## Install
+## インストール
 
 ```bash
 npm install
 ```
 
-## Start
+## 起動
 
 ```bash
 npm run dev
 ```
 
-Open <http://localhost:3000>
+<http://localhost:3000> を開きます。
 
 ---
 
-# Available Scripts
+# 利用可能なスクリプト
 
 - `npm run dev`
 - `npm run build`
@@ -81,7 +81,7 @@ Open <http://localhost:3000>
 
 ---
 
-# Development Flow
+# 開発フロー
 
 1. GitHub Issue
 2. Approved Design
@@ -97,8 +97,9 @@ Open <http://localhost:3000>
 
 ---
 
-# Documentation Guidelines
+# ドキュメント作成ガイドライン
 
-- Keep this `README.md` entirely in English.
-- Write all new and modified README content in English.
-- Keep the README concise and focused on the purpose of its directory.
+- この`README.md`は日本語で記述します。
+- READMEの新規および変更する内容は、原則として日本語で記述します。
+- ファイル名、ディレクトリ名、コマンド、コード、識別子、技術固有名詞は必要に応じて英語のまま維持します。
+- READMEは簡潔にし、そのディレクトリの目的に焦点を当てます。
