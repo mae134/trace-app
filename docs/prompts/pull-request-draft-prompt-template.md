@@ -6,7 +6,7 @@ This template is used to instruct the AI coding agent that performed the impleme
 
 Implementation Completed
 ↓
-AI Coding Agent
+AI coding Agent
 ↓
 Generate Pull Request Draft
 ↓
