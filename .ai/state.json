@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "codex-playground",
+    "phase": 1,
+    "application": "Next.js memo app"
+  },
+  "current": {
+    "branch": "docs/project-retrospective",
+    "issue": {
+      "number": 70,
+      "title": "Rebuild AI Context",
+      "state": "OPEN",
+      "url": "https://github.com/mae134/codex-playground/issues/70"
+    },
+    "pull_request": null,
+    "task": "Rebuild .ai/context.md and .ai/state.json from the current repository state.",
+    "status": "context_rebuilt_for_review"
+  },
+  "open_issues": [
+    {
+      "number": 70,
+      "title": "Rebuild AI Context"
+    },
+    {
+      "number": 17,
+      "title": "Retrospective"
+    },
+    {
+      "number": 5,
+      "title": "GitHub Issues・Projects導入"
+    }
+  ],
+  "repository": {
+    "remote": "https://github.com/mae134/codex-playground",
+    "head_commit": "bcce04d",
+    "worktree_before_rebuild": "clean"
+  },
+  "next_recommended_task": "Review the rebuilt AI context, then complete the review and Git workflow for Issue #70 and the retrospective branch.",
+  "last_updated": "2026-07-18"
+}

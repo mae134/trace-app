@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Codex Playground
 
-## Getting Started
+Codex Playground is a learning project for building and validating an AI-assisted development workflow using ChatGPT and Codex.
 
-First, run the development server:
+The goal of this project is to establish a practical development process that can eventually be applied to Trace App by practicing Issue-driven development, Pull Request workflows, and clear role separation between humans and AI.
+
+---
+
+# Project Goals
+
+- Establish an AI-assisted development workflow
+- Become proficient with AI coding agents
+- Learn practical Git workflows
+- Develop a memo application
+- Apply the established workflow to Trace App
+
+---
+
+# Documents
+
+| Document | Description |
+|----------|-------------|
+| `docs/playbook/` | Development workflow and operational guidelines |
+| `docs/checklists/` | Checklists for development phases and resuming work |
+| `docs/adr/` | Architecture Decision Records |
+| `docs/design/` | Approved Design documents |
+| `docs/prompts/` | Prompt templates for AI assistants |
+| `docs/history/` | Workflow improvement history |
+
+---
+
+# AI Workflow Overview
+
+- **Human** defines project direction, approves GitHub Issues, performs final reviews, pushes changes, and merges Pull Requests.
+- **ChatGPT** assists with architecture discussions, reviews, workflow improvements, and prompt generation.
+- **AI coding agents** implement approved GitHub Issues, perform verification, and report implementation results based on the approved design.
+- After implementation, AI Context and related repository documentation are updated when necessary.
+
+---
+
+# Repository Structure
+
+| Path | Purpose |
+|------|---------|
+| `app/` | Memo application implementation |
+| `.ai/` | Shared AI project context |
+| `.github/` | GitHub Issue templates and workflows |
+| `docs/` | Playbook, checklists, approved designs, prompts, history, and ADRs |
+
+---
+
+# Development Setup
+
+## Requirements
+
+- Node.js 20.9 or later
+- npm
+
+## Install
+
+```bash
+npm install
+```
+
+## Start
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Available Scripts
 
-## Learn More
+- `npm run dev`
+- `npm run build`
+- `npm run start`
+- `npm run lint`
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Development Flow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. GitHub Issue
+2. Approved Design
+3. Implementation Prompt
+4. Implementation
+5. Repository Documentation Review (if needed)
+6. AI Context Update (if needed)
+7. Review
+8. Commit
+9. Pull Request Draft
+10. Pull Request
+11. Merge
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Documentation Guidelines
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Keep this `README.md` entirely in English.
+- Write all new and modified README content in English.
+- Keep the README concise and focused on the purpose of its directory.
