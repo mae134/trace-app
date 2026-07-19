@@ -1,0 +1,62 @@
+name: Feature / Task
+description: Create a GitHub Issue for a feature or task.
+title: "[Task] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to create a GitHub Issue that follows the project workflow.
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What is the purpose of this issue?
+      placeholder: Describe the goal of this issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is included in this issue?
+      placeholder: List the tasks or changes included in scope.
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: What should not be changed in this issue?
+      placeholder: List anything that should not be included.
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: What constraints or rules should be followed?
+      placeholder: List constraints, assumptions, or rules.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What conditions must be met for this issue to be complete?
+      placeholder: List completion criteria.
+    validations:
+      required: true
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: What files or outputs should be produced?
+      placeholder: List expected deliverables.
+    validations:
+      required: true
