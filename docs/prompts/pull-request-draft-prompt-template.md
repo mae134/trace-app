@@ -16,7 +16,7 @@ Create Pull Request
 
 ## Rules
 
-- Write the Pull Request draft in English.
+- Write the Pull Request draft in Japanese.
 - Write the output as a Markdown (`.md`) file.
 - Use the GitHub Issue, implementation summary, and verification results as the source of truth.
 - Ensure the Pull Request reflects the approved GitHub Issue.

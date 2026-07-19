@@ -1,12 +1,12 @@
-# .ai Directory
+# .aiディレクトリ
 
-## Purpose
+## 目的
 
-`.ai/` is a shared project context directory for AI coding agents.
+`.ai/`はAIコーディングエージェント向けの共有プロジェクトコンテキストディレクトリです。
 
-It provides the minimum information required for AI agents to quickly understand the current project status and continue development consistently across conversations and tools.
+AI agentが現在のプロジェクト状況をすばやく把握し、会話やツールが変わっても一貫して開発を継続するために必要な最小限の情報を提供します。
 
-## Directory Structure
+## ディレクトリ構成
 
 ```text
 .ai/
@@ -15,54 +15,54 @@ It provides the minimum information required for AI agents to quickly understand
 └── state.json
 ```
 
-## Files
+## ファイル
 
 ### README.md
 
-Describes the purpose, structure, and usage of the `.ai/` directory.
+`.ai/`ディレクトリの目的、構成、使用方法を説明します。
 
 ### context.md
 
-Stores a human-readable summary of the current project context.
+現在のプロジェクトコンテキストについて、人間が読める形式の概要を保存します。
 
-Examples:
+例:
 
-- Current goals
-- Current progress
-- Important decisions
-- Pending tasks
-- Next recommended task
+- 現在の目標
+- 現在の進捗
+- 重要な決定事項
+- 保留中のタスク
+- 次に推奨されるタスク
 
 ### state.json
 
-Stores machine-readable project state.
+機械可読なプロジェクト状態を保存します。
 
-Examples:
+例:
 
-- Current branch
-- Current GitHub Issue
-- Current status
-- Last updated
+- 現在のブランチ
+- 現在のGitHub Issue
+- 現在のステータス
+- 最終更新日時
 
-## Update Rules
+## 更新ルール
 
-The files in this directory are updated manually.
+このディレクトリ内のファイルは手動で更新します。
 
-Update them when:
+次の場合に更新します:
 
-- Starting a new task
-- Completing a GitHub Issue
-- Preparing to continue work in a new conversation
-- When significant project changes occur
+- 新しいタスクを開始するとき
+- GitHub Issueを完了したとき
+- 新しい会話で作業を継続する準備をするとき
+- プロジェクトに重要な変更があったとき
 
-## Design Principles
+## 設計原則
 
-- AI tool independent
-- Human readable when possible
-- Keep only the minimum required context
-- Reference existing project documentation instead of duplicating information
+- 特定のAIツールに依存しない
+- 可能な限り人間が読める形式にする
+- 必要最小限のコンテキストだけを保持する
+- 情報を重複させず、既存のプロジェクトドキュメントを参照する
 
-## References
+## 参照先
 
 - AGENTS.md
 - docs/playbook/
@@ -72,8 +72,9 @@ Update them when:
 
 ---
 
-# Documentation Guidelines
+# ドキュメント作成ガイドライン
 
-- Keep this `README.md` entirely in English.
-- Write all new and modified README content in English.
-- Keep the README concise and focused on the purpose of its directory.
+- この`README.md`は日本語で記述します。
+- READMEの新規および変更する内容は、原則として日本語で記述します。
+- ファイル名、ディレクトリ名、コマンド、コード、識別子、技術固有名詞は必要に応じて英語のまま維持します。
+- READMEは簡潔にし、そのディレクトリの目的に焦点を当てます。

@@ -1,9 +1,16 @@
-# Design
+# 設計
 
-This directory stores implementation design documents that explain how approved GitHub Issue requirements should be implemented.
+このディレクトリには、承認済みGitHub Issueの要件をどのように実装するかを説明する実装設計文書を保存します。
 
-## Structure
+## 構成
 
-| Path | Purpose |
+| パス | 用途 |
 |------|---------|
-| `docs/design/approved/` | Approved Design documents reviewed before implementation begins |
+| `docs/design/approved/` | 実装開始前にレビューされたApproved Design文書 |
+
+# ドキュメント作成ガイドライン
+
+- この`README.md`は日本語で記述します。
+- READMEの新規および変更する内容は、原則として日本語で記述します。
+- ファイル名、ディレクトリ名、コマンド、コード、識別子、技術固有名詞は必要に応じて英語のまま維持します。
+- READMEは簡潔にし、そのディレクトリの目的に焦点を当てます。
