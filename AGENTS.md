@@ -1,13 +1,13 @@
-# AGENTS.md v1.2
+# AGENTS.md v1.3
 
 This file defines the rules Codex must follow when working in this repository.
 It should stay concise and be updated when the AI development workflow changes.
 
 ## Project overview
 
-- This repository is a playground for establishing an AI-assisted development workflow.
-- Current focus: AGENTS.md operation, issue workflow, Git workflow, branch workflow, PR review practice, and eventually a memo app.
-- Do not add application source code, framework setup, CI, or automation unless an approved issue explicitly asks for it.
+- This repository contains Trace App, a web application that helps learners master Subject B of the Fundamental Information Technology Engineer Examination (FE).
+- The project uses an AI-assisted development workflow based on GitHub Issues, Approved Design, Pull Requests, and AI collaboration.
+- Follow the documented workflow and implement only work that has been explicitly requested and approved.
 
 ## Team roles
 
@@ -17,18 +17,52 @@ It should stay concise and be updated when the AI development workflow changes.
 
 ## Development workflow
 
-- Work from the relevant issue or prompt before making changes.
+- Work from an approved GitHub Issue or an explicitly provided prompt before making changes.
 - Follow the flow: Idea -> GitHub Issue -> Approved Design -> Implementation -> Review -> Commit -> Push -> Pull Request -> Merge.
 - Treat Human approval as the boundary before implementation when an issue requires approval.
 - Keep scope small: one issue should represent one feature or one focused change.
 - Explain assumptions when requirements are incomplete.
 
-## Git workflow
+### Git Workflow
 
+Always follow this branch strategy.
+
+```text
+feature/*
+    │
+    ▼
+Pull Request
+    │
+    ▼
+dev
+    │
+    ▼
+Staging Deployment
+    │
+    ▼
+Pull Request
+    │
+    ▼
+main
+    │
+    ▼
+Production Deployment
+```
+
+#### Rules
+
+- Never commit directly to `main`.
+- Never commit directly to `dev`.
+- Create one `feature/*` branch per GitHub Issue.
+- Merge completed work into `dev` via Pull Request.
+- Keep `dev` deployable at all times.
+- Merge `dev` into `main` via Pull Request when a release is ready.
 - Keep `main` stable.
 - Use one branch per issue and one feature per branch when branch work is requested.
 - Do not push or merge; the Human owns those steps.
 - Preserve existing user changes and do not modify unrelated files.
+- Use the repository's Git metadata convention when generating branch names.
+
 
 ## Commit policy
 
@@ -131,6 +165,7 @@ If the purpose or impact of a command is unclear, explain it and request Human a
 
 - Update `AGENTS.md` when agent-facing workflow rules change.
 - Keep human-facing process details in the Playbook instead of duplicating them here.
+- Update AI context when major workflow, architecture, or repository changes occur, or when explicitly requested by the Human.
 - Do not modify files outside the requested scope.
 
 ## Definition of done
