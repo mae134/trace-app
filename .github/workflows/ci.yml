@@ -18,6 +18,30 @@ permissions:
   contents: read
 
 jobs:
+  # mainへのPull Requestが必ずdevブランチから作成されていることを確認
+  validate-main-source:
+    name: Validate main PR source
+    # main向けPull Requestのときだけ実行
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      # PR元ブランチがdevであることを確認
+      - name: Ensure pull request comes from dev
+        run: |
+          if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
+            echo "::error::Pull requests to main must come from the dev branch."
+            exit 1
+          fi
+
+          # フォークではなく、このリポジトリ内のdevブランチからのPRであることを確認
+          if [ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]; then
+            echo "::error::Pull requests to main must come from the dev branch in this repository."
+            exit 1
+          fi
+
+          echo "Valid release pull request: dev -> main"
+
   # コード品質チェックとビルド
   ci:
     runs-on: ubuntu-latest
