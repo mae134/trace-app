@@ -59,7 +59,7 @@ fi
 # --------------------------------------------------
 
 # 指定したIssueが存在するか確認
-if ! gh issue view "$ISSUE_NUMBER" >/dev/null 2>&1; then
+if ! gh issue view "$ISSUE_NUMBER" --json number >/dev/null 2>&1; then
   echo "Error: Issue #$ISSUE_NUMBER was not found or GitHub CLI authentication failed."
   exit 1
 fi
