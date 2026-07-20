@@ -54,7 +54,7 @@ jobs:
       # Node.jsをセットアップ
       # npmキャッシュを利用して依存関係のインストールを高速化
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
