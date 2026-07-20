@@ -1,0 +1,8 @@
+.next
+node_modules
+coverage
+
+.ai
+docs
+README.md
+AGENTS.md
