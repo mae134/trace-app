@@ -8,11 +8,11 @@ Closes #
 
 ## Changes
 
-- 
+-
 
 ## Verification
 
-- 
+-
 
 ## Checklist
 

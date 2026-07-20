@@ -1,29 +1,56 @@
 name: CI
 
+# ワークフローを実行するタイミング
 on:
+  # devブランチへPushされたとき
   push:
     branches:
-      - main
+      - dev
+
+  # dev・mainへのPull Request作成・更新時
   pull_request:
+    branches:
+      - dev
+      - main
+
+# GitHub Actionsに付与する最小権限
+permissions:
+  contents: read
 
 jobs:
-  build:
+  # コード品質チェックとビルド
+  ci:
     runs-on: ubuntu-latest
 
     steps:
+      # ソースコードをチェックアウト
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Node.jsをセットアップ
+      # npmキャッシュを利用して依存関係のインストールを高速化
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
 
+      # 依存関係をインストール
       - name: Install dependencies
         run: npm ci
 
+      # TypeScriptの型エラーがないことを確認
+      - name: Run TypeScript check
+        run: npm run typecheck
+
+      # ESLintによる静的解析
       - name: Run ESLint
         run: npm run lint
 
+      # Prettierによるフォーマットチェック
+      - name: Check formatting
+        run: npm run format:check
+
+      # 本番ビルドが正常に完了することを確認
       - name: Build project
         run: npm run build
