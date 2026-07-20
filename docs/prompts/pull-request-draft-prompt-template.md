@@ -27,7 +27,8 @@ Create Pull Request
 - Keep the draft concise and easy to review.
 - Do not include implementation details that are irrelevant to reviewers.
 - Use the same Conventional Commits prefix as the Git branch and commit message whenever practical.
-- Always include a `Closes {{ISSUE_ID}}` section so the GitHub Issue is automatically closed when the Pull Request is merged.
+- Include a `Closes {{ISSUE_ID}}` section only when the Pull Request fully completes the GitHub Issue.
+- If the GitHub Issue is only partially completed or should remain open, omit the `Closes` section.
 
 The implementation for **{{ISSUE_ID}}** has been completed.
 
@@ -66,7 +67,7 @@ Generate the Pull Request using the Markdown template below.
 
 {{PR_TITLE}}
 
-## Closes
+## Closes (Optional)
 
 Closes {{ISSUE_ID}}
 
