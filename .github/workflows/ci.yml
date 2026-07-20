@@ -75,6 +75,10 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
+      # Vitestによる自動テスト
+      - name: Run tests
+        run: npm test
+
       # 本番ビルドが正常に完了することを確認
       - name: Build project
         run: npm run build
