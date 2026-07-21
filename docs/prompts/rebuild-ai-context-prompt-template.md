@@ -31,6 +31,7 @@ Continue Development
 - Store only information that is expected to be consumed programmatically in `.ai/state.json`.
 - Prefer references over duplicating existing documentation.
 - If the project has evolved significantly, remove obsolete sections instead of preserving them.
+- If any requested source is unavailable, continue using the remaining available sources and report which sources were unavailable.
 
 When information conflicts, use the following priority:
 
