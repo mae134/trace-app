@@ -2,64 +2,67 @@
 
 ## Project
 
-Codex Playground is a Next.js memo app and a learning repository for establishing an AI-assisted, Issue-driven development workflow before applying it to Trace App.
-
-## Current Goal
-
-Complete the Phase 1 retrospective and keep the workflow usable through small, evidence-based improvements, then apply the validated approach to Trace App.
+Trace App is a Next.js web application intended to help learners study trace problems in Subject B of Japan's Fundamental Information Technology Engineer Examination (FE). The repository is currently establishing the product and its AI-assisted, Issue-driven development foundation.
 
 ## Current Status
 
-- The memo app's core features and UI improvement are complete, including Local Storage persistence.
-- The repository now includes agent rules, an AI development playbook, reusable prompts, checklists, Approved Designs, review history, Issue/PR templates, CI, and shared AI context.
-- The Phase 1 retrospective and related documentation updates are committed on `docs/project-retrospective` and await the remaining GitHub workflow steps.
-- The worktree was clean before this context rebuild. No Pull Request exists for the current branch.
+- The repository contains the initial Next.js application scaffold.
+- Repository governance, branch automation, CI, formatting, linting, type checking, and Vitest support have been established.
+- Issue #7, **AI Contextを構築する**, is in progress on `chore/setup-ai-context`.
+- No Pull Request exists for the current branch.
+- Several product-definition, architecture, infrastructure, and feature Issues remain open.
+
+## Current Goal
+
+Complete Issue #7 by providing a minimal, maintainable AI context that communicates the repository's current state and points to authoritative project documentation without duplicating it.
 
 ## Current Task
 
-Rebuild `.ai/context.md` and `.ai/state.json` for open Issue #70, **Rebuild AI Context**, using the repository as the source of truth.
+Rebuild `.ai/context.md` and `.ai/state.json` from the current Trace App repository state. The related `.ai/README.md` work is already present in the worktree and is outside this rebuild's requested files.
 
 ## Completed Work
 
-- Implemented display, add, delete, edit, persistence, and UI improvements for the memo app.
-- Established the Issue -> Approved Design -> Implementation -> review -> PR workflow and supporting repository documentation.
-- Added the Phase 1 retrospective at `docs/retrospectives/2026-codex-playground-phase1.md` in commit `bcce04d`.
+- Initialized the development foundation and localized the repository documentation.
+- Configured GitHub repository management and the `feature/*` -> `dev` -> `main` release flow.
+- Added CI and code-quality tooling, including ESLint, Prettier, TypeScript checks, Vitest, Husky, lint-staged, commitlint, and Dependabot.
+- Added Issue/PR templates and a script for creating Issue branches.
 
 ## Pending Tasks
 
-- Review this rebuilt AI context and complete Issue #70.
-- Complete the review, Pull Request, and merge steps for the retrospective work associated with Issue #17.
-- Continue evaluating Issue #5, **GitHub Issues・Projects導入**; its required next action is not documented in the local repository.
+- Review and complete the remaining deliverables for Issue #7.
+- Address the open product-definition, architecture, infrastructure, and feature Issues in their approved order.
+- Review the open Dependabot Pull Requests separately; dependency updates are outside Issue #7.
 
 ## Important Decisions
 
-- The Human owns direction, approval, final review, push, and merge; Codex commits only when explicitly requested.
-- GitHub Issues define what to implement; Approved Designs define how to implement it.
-- Keep AI context minimal and reference repository documentation instead of duplicating it.
-- Record improvement ideas in History and validate them before changing the Playbook, prompts, or checklists.
+- GitHub Issues define requirements; Approved Designs define implementation decisions.
+- Feature work flows through `feature/*` to `dev`, then through a release Pull Request to `main`.
+- The Human owns approval, push, merge, and final review; Codex commits only when explicitly requested.
+- AI context is maintained manually, kept minimal, and should reference existing documentation rather than reproduce it.
 
 ## Constraints
 
-- Follow `AGENTS.md`; keep `main` stable and preserve unrelated user changes.
-- Do not add application code, tooling, CI, or automation without an approved Issue.
+- Follow `AGENTS.md` and the active GitHub Issue.
+- Do not implement unapproved work or modify files outside the requested scope.
+- Preserve unrelated worktree changes.
 - Do not push or merge, and do not commit unless explicitly requested.
-- Do not invent unavailable project or GitHub state.
+- Do not invent unavailable project state or machine-readable values.
 
 ## Next Recommended Task
 
-Review the rebuilt `.ai` files, then complete the Human-owned review and Git workflow for Issue #70 and the retrospective branch.
+Have the Human review the Issue #7 deliverables, then complete the approved commit and Pull Request workflow for `chore/setup-ai-context`.
 
 ## Important References
 
-- `AGENTS.md`: agent-facing repository rules.
-- `README.md`: project overview, structure, setup, and development flow.
-- `.ai/README.md`: AI context purpose and update rules.
-- `docs/playbook/ai-development-playbook.md`: human-facing workflow guidance.
-- `docs/retrospectives/2026-codex-playground-phase1.md`: current Phase 1 retrospective.
-- `docs/design/approved/17-project-retrospective.md`: approved retrospective design.
-- `docs/prompts/`, `docs/checklists/`, and `docs/history/`: reusable workflow material and recorded findings.
+- `AGENTS.md`: authoritative agent rules and Git workflow.
+- `README.md`: product overview, repository structure, setup, and commands.
+- `.ai/README.md`: purpose and maintenance rules for AI context.
+- `docs/playbook/ai-development-playbook.md`: human-facing AI development guidance.
+- `docs/design/`: Approved Design responsibilities and records.
+- `docs/prompts/`, `docs/checklists/`, and `docs/history/`: reusable workflow material and improvement history.
+- GitHub Issue #7: current requirements and acceptance criteria.
 
 ## Unavailable Information
 
-- GitHub Issue and Pull Request lists were available, but detailed Issue bodies were unavailable during this rebuild because GitHub API access failed.
-- GitHub Project board state was not reviewed.
+- Issue #7 has no milestone or GitHub Project assignment.
+- The repository does not currently contain ADR files beyond the documented ADR directory reference.
