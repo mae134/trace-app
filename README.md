@@ -154,6 +154,7 @@ GitHub Issue に紐付いた作業ブランチを `dev` ブランチから作成
 - Git がインストールされている
 - GitHub CLI (`gh`) がインストールされている
 - GitHub CLI にログイン済み (`gh auth login`)
+- Codex CLI（任意。推奨ブランチ名の生成に使用）
 
 #### 初回のみ
 
@@ -168,25 +169,33 @@ chmod +x scripts/create-issue-branch.sh
 #### 使い方
 
 ```bash
-./scripts/create-issue-branch.sh <issue-number> <branch-name>
+./scripts/create-issue-branch.sh <issue-number> [branch-name]
 ```
 
 #### 使用例
 
 ```bash
-./scripts/create-issue-branch.sh 4 chore/setup-ci-code-quality
-./scripts/create-issue-branch.sh 5 feature/add-login
-./scripts/create-issue-branch.sh 6 feature/trace-analysis
-./scripts/create-issue-branch.sh 7 fix/login-validation
-./scripts/create-issue-branch.sh 8 docs/update-readme
+# Issue番号のみを指定して対話形式で選択
+./scripts/create-issue-branch.sh 41
+
+# ブランチ名を明示して従来どおり非対話で実行
+./scripts/create-issue-branch.sh 41 chore/41-custom-name
 ```
+
+Issue番号のみを指定するとIssueタイトルを取得し、Codex CLIが利用可能な場合は英語の推奨ブランチ名を生成します。
+
+```text
+Branch name [chore/41-interactive-issue-branch]:
+```
+
+Enterを押すと表示された推奨名を採用し、別の名前を入力するとその名前を使用します。Codex CLIが未導入、未認証、または生成に失敗した場合は、ブランチ名の手入力へ切り替わります。Codex CLIは任意の依存関係であり、ブランチ作成自体には必須ではありません。
 
 #### 引数
 
 | 引数 | 説明 | 例 |
 |------|------|-----|
-| issue-number | GitHub Issue番号 | `4` |
-| branch-name | 作成するブランチ名 | `chore/setup-ci-code-quality` |
+| issue-number | GitHub Issue番号 | `41` |
+| branch-name | 作成するブランチ名（省略時は対話入力） | `chore/41-custom-name` |
 
 #### 実行内容
 
@@ -196,13 +205,15 @@ chmod +x scripts/create-issue-branch.sh
 2. Git / GitHub CLI の存在確認
 3. Gitリポジトリ内で実行されているか確認
 4. 未コミット変更がないか確認
-5. Issueの存在確認
-6. ローカル・リモートのブランチ重複確認
-7. `dev` ブランチへ切り替え
-8. `dev` を最新状態へ更新
-9. Issueに紐付いたブランチを作成
-10. ブランチへ切り替え
-11. リモート追跡ブランチ（upstream）を設定
+5. Issueの存在確認とタイトル取得
+6. ブランチ名をAI候補または手入力から選択（省略時）
+7. ブランチ名を検証
+8. ローカル・リモートのブランチ重複確認
+9. `dev` ブランチへ切り替え
+10. `dev` を最新状態へ更新
+11. Issueに紐付いたブランチを作成
+12. ブランチへ切り替え
+13. リモート追跡ブランチ（upstream）を設定
 
 #### 注意事項
 

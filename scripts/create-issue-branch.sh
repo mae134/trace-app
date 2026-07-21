@@ -3,6 +3,13 @@
 # エラー発生時に即終了し、未定義変数やパイプラインのエラーも検知する
 set -euo pipefail
 
+# shellcheck source=scripts/lib/branch-name.sh
+source "$(dirname "${BASH_SOURCE[0]}")/lib/branch-name.sh"
+# shellcheck source=scripts/lib/ai-branch-name.sh
+source "$(dirname "${BASH_SOURCE[0]}")/lib/ai-branch-name.sh"
+# shellcheck source=scripts/lib/issue.sh
+source "$(dirname "${BASH_SOURCE[0]}")/lib/issue.sh"
+
 # コマンドライン引数
 ISSUE_NUMBER="${1:-}"
 BRANCH_NAME="${2:-}"
@@ -15,9 +22,9 @@ REMOTE="origin"
 # 引数チェック
 # --------------------------------------------------
 
-# Issue番号とブランチ名が指定されているか確認
-if [[ -z "$ISSUE_NUMBER" || -z "$BRANCH_NAME" ]]; then
-  echo "Usage: $0 <issue-number> <branch-name>"
+# Issue番号が指定され、引数が2個以内であることを確認
+if [[ -z "$ISSUE_NUMBER" || $# -gt 2 ]]; then
+  echo "Usage: $0 <issue-number> [branch-name]"
   exit 1
 fi
 
@@ -58,9 +65,35 @@ fi
 # Issue・ブランチ存在チェック
 # --------------------------------------------------
 
-# 指定したIssueが存在するか確認
-if ! gh issue view "$ISSUE_NUMBER" --json number >/dev/null 2>&1; then
+# 指定したIssueが存在することを確認し、タイトルを取得
+if ! ISSUE_TITLE="$(get_issue_title "$ISSUE_NUMBER" 2>/dev/null)"; then
   echo "Error: Issue #$ISSUE_NUMBER was not found or GitHub CLI authentication failed."
+  exit 1
+fi
+
+# ブランチ名が省略された場合のみ、AI候補と対話入力を使用する
+if [[ -z "$BRANCH_NAME" ]]; then
+  echo
+  echo "Issue #$ISSUE_NUMBER:"
+  echo "$ISSUE_TITLE"
+  echo
+
+  SUGGESTED_BRANCH_NAME=""
+  if SUGGESTED_BRANCH_NAME="$(generate_branch_name_suggestion "$ISSUE_NUMBER" "$ISSUE_TITLE")"; then
+    echo "Suggested branch name:"
+    echo "$SUGGESTED_BRANCH_NAME"
+    echo
+  else
+    echo "AI branch-name generation is unavailable."
+    echo "Please enter a branch name manually."
+    echo
+  fi
+
+  BRANCH_NAME="$(prompt_for_branch_name "$SUGGESTED_BRANCH_NAME")"
+fi
+
+# AI候補・手入力・明示指定のいずれも最終的に同じ検証を通す
+if ! validate_branch_name "$BRANCH_NAME"; then
   exit 1
 fi
 
