@@ -28,10 +28,11 @@ generate_branch_name_suggestion() {
     'Issue title:' \
     "$issue_title")"
 
-  if ! candidate="$(printf '%s\n' "$prompt" | codex exec \
+  if ! candidate="$(printf '%s\n' "$prompt" | codex \
+    --ask-for-approval never \
+    exec \
     --ephemeral \
     --sandbox read-only \
-    --ask-for-approval never \
     --color never \
     - 2>/dev/null)"; then
     printf 'Codex CLI could not generate a branch name.\n' >&2
