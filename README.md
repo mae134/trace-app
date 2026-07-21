@@ -231,6 +231,16 @@ Enterを押すと表示された推奨名を採用し、別の名前を入力す
 
 実行時に`git fetch --prune`でリモート追跡ブランチを更新し、現在のブランチおよび`main`、`master`、`develop`、`dev`を除外して、マージ済みのローカルブランチを`git branch -d`で削除します。削除対象がない場合も正常終了します。
 
+### finish-issue.sh
+
+Pull Requestのマージ後に、ローカルリポジトリを`dev`ブランチの最新状態へ戻し、マージ済みのローカルブランチを整理します。
+
+```bash
+./scripts/finish-issue.sh
+```
+
+未コミットの変更がある場合は処理を中断します。作業ツリーがクリーンな場合は`dev`へ切り替え、`git fetch --prune`と`git pull --ff-only origin dev`を実行した後、`cleanup-branches.sh`を呼び出します。
+
 ---
 
 ## 開発フロー
@@ -246,6 +256,7 @@ Enterを押すと表示された推奨名を採用し、別の名前を入力す
 9. Pull Request Draft
 10. Pull Request
 11. Merge
+12. `./scripts/finish-issue.sh`
 
 ---
 
