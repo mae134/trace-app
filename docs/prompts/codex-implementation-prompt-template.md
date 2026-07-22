@@ -24,6 +24,17 @@ Japanese Implementation Report
 
 - Write the implementation prompt in English.
 - Write the final implementation report in Japanese.
+- Write the implementation prompt as a Markdown (`.md`) file.
+
+## Expected Output
+
+Generate a single Markdown (`.md`) file.
+
+The output filename must be:
+
+`implementation-prompt-{{ISSUE_ID}}.md`
+
+---
 
 Implement **{{ISSUE_ID}}**.
 
@@ -70,6 +81,8 @@ The Approved Design defines **how** the implementation should be performed.
 - If you believe the issue should be split into smaller tasks, explain your reasoning before implementing.
 - If you identify improvements outside the scope, report them as recommendations instead of implementing them.
 - If deprecated APIs or warnings are found, verify the relevant library versions before applying changes.
+- Write code comments in Japanese only when they are necessary to explain intent, design decisions, constraints, assumptions, workarounds, or other non-obvious behavior.
+- Do not add comments that merely restate what the code already expresses.
 
 ---
 
@@ -96,7 +109,6 @@ Please report:
 4. Verification results
 5. Execution Log
 6. Recommendations (maximum 3)
-7. Pull Request draft
 
 Run relevant tests or verification steps when applicable.
 
