@@ -2,6 +2,10 @@
 
 This template is used to instruct an AI assistant to generate an Approved Design document before implementation begins.
 
+Generate an Approved Design proposal based on the following information.
+
+The Approved Design will be reviewed by a Human before implementation begins.
+
 The purpose is to separate implementation requirements (What) from implementation decisions (How), allowing Human review before an AI coding agent starts implementation.
 
 ## Workflow
@@ -23,7 +27,7 @@ AI Coding Agent
 ## Rules
 
 - Write the Approved Design in English.
-- Write the output as a Markdown (`.md`) file.
+- Output the Approved Design as a Markdown (`.md`) file.
 - Use the GitHub Issue as the source of truth for implementation requirements.
 - Describe how the implementation should be performed without modifying the GitHub Issue.
 - Do not change the approved scope.
@@ -32,10 +36,20 @@ AI Coding Agent
 - Clearly distinguish confirmed decisions from assumptions.
 - If required information is unavailable, report it instead of guessing.
 - Treat Additional Context as supplementary guidance. If it conflicts with the GitHub Issue, follow the GitHub Issue.
+- The Approved Design is a proposal for Human review and approval.
+- Do not assume the design is approved until a Human confirms it.
+
+## Expected Output
+
+Generate a single Markdown (`.md`) file.
+
+The output filename must be:
+
+`approved-design-{{ISSUE_ID}}.md`
+
+The document should be suitable for Human review before creating the Implementation Prompt.
 
 ---
-
-Generate an Approved Design based on the following information.
 
 Before generating the design, review:
 
@@ -185,12 +199,6 @@ Before implementation begins, confirm:
 - Verification plan is appropriate.
 
 ---
-
-## Expected Output
-
-Generate a single Markdown document containing the complete Approved Design.
-
-The document should be suitable for Human review before creating the Implementation Prompt.
 
 ## Out of Scope
 
