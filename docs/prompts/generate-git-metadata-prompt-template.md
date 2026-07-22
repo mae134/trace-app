@@ -22,10 +22,11 @@ Generate Pull Request Title
 
 ## Rules
 
-- Write the output in English.
+- Write the branch name, commit message, and explanations in English.
+- Generate the Pull Request title in Japanese.
 - Use the GitHub Issue as the source of truth for the work category and branch name.
 - Use the completed implementation and changed files as the source of truth for the commit message and Pull Request title.
-- Keep the same work category across the branch name, commit message, and Pull Request title whenever practical.
+- Use the same work category across the branch name, commit message, and Pull Request title.
 - Do not invent implementation details.
 - Do not generate a commit message or Pull Request title before implementation details are available.
 - Use lowercase kebab-case for branch names.
@@ -66,7 +67,7 @@ Generate the initial Git metadata from the GitHub Issue.
 
 ```text
 Work Category: Documentation
-Branch Name: docs/create-git-metadata-prompt
+Branch Name: docs/57-update-prompt-templates
 Commit Prefix: docs:
 Pull Request Prefix: docs:
 Reason: The Issue only adds or modifies prompt documentation.
@@ -101,17 +102,17 @@ Generate the final Git metadata from the completed implementation.
 1. Confirm whether the original work category still matches the completed implementation.
 2. Generate a commit message that describes the actual completed changes.
 3. Generate a Pull Request title that describes the overall Issue outcome.
-4. Preserve category consistency whenever practical.
+4. Ensure the branch name, commit message, and Pull Request title use the same work category.
 5. If the implementation changed category, clearly explain why.
 
 ### Output Format
 
 ```text
 Work Category: Documentation
-Branch Name: docs/create-git-metadata-prompt
+Branch Name: docs/57-update-prompt-templates
 Commit Message: docs: add Git metadata generation prompt
-Pull Request Title: docs: add Git metadata generation workflow
-Reason: The completed changes add a reusable documentation prompt and related workflow guidance.
+Pull Request Title: docs: プロンプトテンプレートおよび関連ドキュメントの運用ルールを統一
+Reason: The completed changes standardize prompt templates and related documentation rules.
 ```
 
 ## Naming Guidelines
@@ -122,10 +123,16 @@ Reason: The completed changes add a reusable documentation prompt and related wo
 - Start with the selected branch prefix.
 - Describe the Issue goal rather than implementation details.
 
+### Branch Naming Convention
+
+Use the following format:
+
+<type>/<issue-number>-<short-description>
+
 Example:
 
 ```text
-docs/create-git-metadata-prompt
+docs/57-update-prompt-templates
 ```
 
 ### Commit Message
@@ -133,6 +140,12 @@ docs/create-git-metadata-prompt
 - Describe the changes included in the commit.
 - Use imperative, concise wording.
 - Do not describe work that was not committed.
+
+### Commit Message Convention
+
+Use the following format:
+
+<type>: <summary>
 
 Example:
 
@@ -142,14 +155,15 @@ docs: add Git metadata generation prompt
 
 ### Pull Request Title
 
+- Generate the title in Japanese.
+- Prefix the title with the same Conventional Commits type as the branch and commit message.
 - Describe the overall outcome of the GitHub Issue.
-- Use the same work category as the branch and commit whenever practical.
-- Do not copy the commit message when the Pull Request includes broader changes.
+- Do not simply copy the commit message when the Pull Request includes broader changes.
 
 Example:
 
 ```text
-docs: add Git metadata generation workflow
+docs: プロンプトテンプレートおよび関連ドキュメントの運用ルールを統一
 ```
 
 ## Out of Scope
