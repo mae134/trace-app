@@ -132,6 +132,18 @@ If the target Issue, title, body, repository, or metadata changes after approval
 - Before retrying a failed or interrupted creation, verify whether the Issue was already created.
 - Report verified results without guessing.
 
+## Character and Output Size Limits
+
+Prefer returning the complete Issue draft directly when the environment supports it.
+
+If a character limit, message-size limit, terminal limit, tool limit, or output truncation risk prevents returning the complete draft:
+
+1. Write the complete output to a Markdown (`.md`) file.
+2. Do not shorten or omit required sections solely to fit the limit.
+3. Return the file path or artifact reference.
+4. Clearly state that the complete draft was written to the file.
+5. Do not claim that a file was created unless its existence was verified.
+
 ## Capability Fallback
 
 If the required GitHub read capability is unavailable:
